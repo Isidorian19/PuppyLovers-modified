@@ -11,8 +11,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
     background-color: #f2f2f2;
 }
 
@@ -21,14 +20,15 @@ footer {
     background-color: #1f5f7a;
     color: white;
     text-align: center;
-    padding: 30px 30px;
+    padding: 30px;
     font-size: 20px;
     font-weight: bold;
 }
 
 .banner-puppies img {
     width: 100%;
-    height: 320px;
+    aspect-ratio: 5 / 2;
+    height: auto;
     object-fit: cover;
     display: block;
 }
@@ -36,23 +36,23 @@ footer {
 .puppy-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    padding: 30px 40px;
+    gap: 20px;
+    padding: 40px clamp(20px, 5vw, 80px);
 }
 
 .puppy-row img {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 4 / 3;
+    height: auto;
     object-fit: cover;
     display: block;
 }
 
 .missing {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 4 / 3;
     background-color: #f01d40;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
+    font-size: clamp(18px, 2vw, 28px);
     color: #000;
     text-align: center;
     display: flex;
@@ -72,13 +72,21 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    padding: 0 40px 40px;
+    padding: 0 clamp(20px, 5vw, 80px) 40px;
 }
 
 .more-puppies img {
     width: 100%;
-    height: 360px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     object-fit: cover;
     display: block;
+}
+
+@media (max-width: 700px) {
+    .puppy-row,
+    .more-puppies {
+        grid-template-columns: 1fr;
+    }
 }
 
